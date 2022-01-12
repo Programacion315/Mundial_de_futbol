@@ -4,12 +4,18 @@
  */
 package vista;
 
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import logica.Equipo;
+
 /**
  *
  * @author jluiso315
  */
 public class GUI_Agregar_Equipo extends javax.swing.JFrame {
-
+    
+    String ruta = "";
     /**
      * Creates new form GUI_Agregar_Jugador
      */
@@ -32,10 +38,10 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
+        txt_equipo = new javax.swing.JTextField();
+        txt_tecnico = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btn_agregar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,9 +54,9 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel6.setText("Imagen:");
 
-        jTextField2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_equipo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jTextField5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        txt_tecnico.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
         jButton1.setText("Escoger imagen");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -59,7 +65,12 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Agregar");
+        btn_agregar.setText("Agregar");
+        btn_agregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_agregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,16 +83,16 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
+                            .addComponent(btn_agregar)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(57, 57, 57)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_tecnico, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(57, 57, 57)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txt_equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -90,29 +101,54 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_equipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_tecnico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jButton1))
                 .addGap(52, 52, 52)
-                .addComponent(jButton2)
+                .addComponent(btn_agregar)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        GUI_escoger_imagen escoger = new GUI_escoger_imagen();
-        escoger.setVisible(true);
+        
+        JFileChooser jfileChooser = new JFileChooser();
+        
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter(".JPG", "jpg");
+        jfileChooser.setFileFilter(filtro);
+        
+        int respuesta = jfileChooser.showOpenDialog(this);
+        
+        if(respuesta == JFileChooser.APPROVE_OPTION){ 
+            
+            ruta = jfileChooser.getSelectedFile().getPath();
+            
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
+        // TODO add your handling code here:}
+        
+        String equipoT = txt_equipo.getText();
+        String tecnico = txt_tecnico.getText();
+        
+        Equipo equipo = new Equipo(equipoT, tecnico, ruta);
+        
+        
+    }//GEN-LAST:event_btn_agregarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,12 +156,12 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_agregar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField txt_equipo;
+    private javax.swing.JTextField txt_tecnico;
     // End of variables declaration//GEN-END:variables
 }
