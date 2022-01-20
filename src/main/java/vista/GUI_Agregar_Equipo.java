@@ -8,6 +8,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import logica.Equipo;
+import logica.Mundial;
 
 /**
  *
@@ -19,11 +20,20 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
     /**
      * Creates new form GUI_Agregar_Jugador
      */
-    public GUI_Agregar_Equipo() {
+    
+    Mundial mundial;
+    
+    GUI_Principal principal;
+    
+    public GUI_Agregar_Equipo(Mundial pMundial, GUI_Principal pPrincipal) {
+        
         initComponents();
         this.setLocationRelativeTo(null);
         
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        
+        mundial = pMundial;
+        principal = pPrincipal;
     }
 
     /**
@@ -147,6 +157,10 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
         
         Equipo equipo = new Equipo(equipoT, tecnico, ruta);
         
+        mundial.ingresarEquipoMundial(equipo);
+        
+        principal.llenarCb();
+        JOptionPane.showMessageDialog(null, "Agregado con exito!");
         
     }//GEN-LAST:event_btn_agregarActionPerformed
 

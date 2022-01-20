@@ -16,6 +16,11 @@ public class Mundial {
     
     ArrayList<Equipo> equipos = new ArrayList<>();
 
+    public Mundial(){
+        
+    }
+            
+    
     public Mundial(String ruta) {
         this.rutaArchivo = ruta;
     }
@@ -32,6 +37,16 @@ public class Mundial {
         
         equipos.add(equipo);
     }
+
+    public ArrayList<Equipo> getEquipos() {
+        return equipos;
+    }
+
+    public void setEquipos(ArrayList<Equipo> equipos) {
+        this.equipos = equipos;
+    }
+    
+    
     
     
 }

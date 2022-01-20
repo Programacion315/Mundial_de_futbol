@@ -7,6 +7,8 @@ package vista;
 import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import logica.Equipo;
+import logica.Mundial;
 
 /**
  *
@@ -17,6 +19,9 @@ public class GUI_Principal extends javax.swing.JFrame {
     /**
      * Creates new form GUI_Principal
      */
+    
+    Mundial mundial;
+    
     public GUI_Principal() {
         initComponents();
         
@@ -37,6 +42,8 @@ public class GUI_Principal extends javax.swing.JFrame {
         lbl_escudo_foto.setIcon(icon2);
 
         //this.repaint();
+        
+        mundial = new Mundial();
     }
 
     /**
@@ -104,7 +111,6 @@ public class GUI_Principal extends javax.swing.JFrame {
         jLabel2.setText("Equipo:");
 
         cb_equipo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cb_equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setText("Tecnico:");
@@ -158,7 +164,6 @@ public class GUI_Principal extends javax.swing.JFrame {
         jLabel7.setText("Nombre:");
 
         cb_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        cb_nombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setText("Edad:");
@@ -270,7 +275,7 @@ public class GUI_Principal extends javax.swing.JFrame {
 
     private void btn_agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregarActionPerformed
         // TODO add your handling code here:
-        GUI_Agregar_Equipo equipo = new GUI_Agregar_Equipo();
+        GUI_Agregar_Equipo equipo = new GUI_Agregar_Equipo(mundial, this);
         equipo.setVisible(true);
     }//GEN-LAST:event_btn_agregarActionPerformed
 
@@ -309,6 +314,17 @@ public class GUI_Principal extends javax.swing.JFrame {
         });
     }
 
+    public void llenarCb(){
+        
+        cb_equipo   
+        
+        for(Equipo equipo: mundial.getEquipos()){
+            
+            cb_equipo.addItem(equipo.getPais());
+        }
+        
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_agregar;
     private javax.swing.JButton btn_agregar_jugador;
