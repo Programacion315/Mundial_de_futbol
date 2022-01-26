@@ -5,8 +5,10 @@
 package vista;
 
 import java.awt.Image;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import logica.Equipo;
 import logica.Mundial;
 
@@ -111,6 +113,11 @@ public class GUI_Principal extends javax.swing.JFrame {
         jLabel2.setText("Equipo:");
 
         cb_equipo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        cb_equipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cb_equipoActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel3.setText("Tecnico:");
@@ -279,6 +286,25 @@ public class GUI_Principal extends javax.swing.JFrame {
         equipo.setVisible(true);
     }//GEN-LAST:event_btn_agregarActionPerformed
 
+    //Recorremos todos los equipos para saber a cual le cambiamos la imagen
+    private void cb_equipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_equipoActionPerformed
+        // TODO add your handling code here:
+        
+        ArrayList<Equipo> nombreArrayList = mundial.getEquipos();
+        
+        for(Equipo equipo: mundial.getEquipos()){
+            
+            
+            if(equipo.getPais().equalsIgnoreCase(cb_equipo.getSelectedItem().toString())){
+                
+                
+                cambiarImagenEquipo(equipo.getImagen());
+            }
+        }
+        
+ 
+    }//GEN-LAST:event_cb_equipoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -315,14 +341,36 @@ public class GUI_Principal extends javax.swing.JFrame {
     }
 
     public void llenarCb(){
+        /*
+        //Eliminamos todos los elementos
+        cb_equipo.removeAllItems();
         
-        cb_equipo   
         
+        //Agregamos todos los elementos de la lista
         for(Equipo equipo: mundial.getEquipos()){
             
             cb_equipo.addItem(equipo.getPais());
+            cambiarImagenEquipo(equipo.getImagen());
         }
         
+        */
+        //Agregar el ultimo elemento de la lista
+        
+        int tamanio = mundial.getEquipos().size();
+        cb_equipo.addItem(mundial.getEquipos().get(tamanio - 1).getPais());
+        
+          
+    }
+    
+    public void cambiarImagenEquipo(String ruta){
+        
+       ImageIcon imagen2 = new ImageIcon(ruta);
+
+        Icon icon2 = new ImageIcon(imagen2.getImage().getScaledInstance(lbl_escudo_foto.getWidth(), lbl_escudo_foto.getHeight(), Image.SCALE_DEFAULT));
+
+        lbl_escudo_foto.setIcon(icon2);
+
+        this.repaint();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -160,10 +160,23 @@ public class GUI_Agregar_Equipo extends javax.swing.JFrame {
         mundial.ingresarEquipoMundial(equipo);
         
         principal.llenarCb();
+        
+        //Se cambia la imagen de nuestro equipo
+        //principal.cambiarImagenEquipo(ruta);
+        
         JOptionPane.showMessageDialog(null, "Agregado con exito!");
+        
+        //Limpiamos los espacios
+        limpiarEspacios();
+        
         
     }//GEN-LAST:event_btn_agregarActionPerformed
 
+    private void limpiarEspacios(){
+        
+        txt_equipo.setText("");
+        txt_tecnico.setText("");
+    }
     /**
      * @param args the command line arguments
      */

@@ -202,9 +202,18 @@ public class GUI_Agregar_Jugador extends javax.swing.JFrame {
         
         Jugador jugador = new Jugador(nombre, edad, posicion, altura, peso, salario, ruta);
         
-        
+        limpiarEspacios();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void limpiarEspacios(){
+        
+        txt_nombre.setText("");
+        txt_edad.setText("");
+        txt_posicion.setText("");
+        txt_altura.setText("");
+        txt_peso.setText("");
+        txt_salario.setText("");
+    }
     /**
      * @param args the command line arguments
      */
