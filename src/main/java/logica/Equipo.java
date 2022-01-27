@@ -53,6 +53,18 @@ public class Equipo {
         
         jugadores.add(jugador);
     }
+
+    
+    //Getters and setters de dar jugador
+    public ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
+    public void setJugadores(ArrayList<Jugador> jugadores) {
+        this.jugadores = jugadores;
+    }
+    
+    
             
     
 }

@@ -5,7 +5,9 @@
 package vista;
 
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import logica.Equipo;
 import logica.Jugador;
 
 /**
@@ -17,11 +19,16 @@ public class GUI_Agregar_Jugador extends javax.swing.JFrame {
     /**
      * Creates new form GUI_Agregar_Jugador
      */
-    public GUI_Agregar_Jugador() {
+    
+    GUI_Principal principal;
+    
+    public GUI_Agregar_Jugador(GUI_Principal pPrincipal) {
         initComponents();
         this.setLocationRelativeTo(null);
         
         this.setDefaultCloseOperation(HIDE_ON_CLOSE);
+        
+        principal = pPrincipal;
     }
 
     String ruta = "";
@@ -202,6 +209,25 @@ public class GUI_Agregar_Jugador extends javax.swing.JFrame {
         
         Jugador jugador = new Jugador(nombre, edad, posicion, altura, peso, salario, ruta);
         
+        //Recorrer la lista de jugadores y agregar el jugador al equipo que se encuntre seleccionado!
+        
+        for (Equipo equipo:  principal.mundial.getEquipos()) {
+            
+            if(equipo.getPais().equalsIgnoreCase(principal.getValorCbEquipo())){
+                
+                equipo.insertarJugadorLista(jugador);
+                
+                //Agregamos los elementos al cb de abajo
+                
+                principal.llenarCbAbajo(equipo);
+            }
+        }
+        
+        
+        
+        
+        
+        JOptionPane.showMessageDialog(null, "Jugador añadido con exito!");
         limpiarEspacios();
     }//GEN-LAST:event_jButton2ActionPerformed
 

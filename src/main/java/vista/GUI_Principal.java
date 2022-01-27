@@ -10,6 +10,7 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import logica.Equipo;
+import logica.Jugador;
 import logica.Mundial;
 
 /**
@@ -84,32 +85,32 @@ public class GUI_Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new java.awt.GridLayout(4, 0, 1, 1));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 0, 55)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Mundial de futbol");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(113, 113, 113)
-                .addComponent(jLabel1)
-                .addContainerGap(160, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(59, 59, 59))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel1)
-                .addContainerGap(101, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel1);
 
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel2.setText("Equipo:");
 
         cb_equipo.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
@@ -119,12 +120,13 @@ public class GUI_Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel3.setText("Tecnico:");
 
         lbl_tecnico.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lbl_tecnico.setText(".");
 
+        lbl_escudo_foto.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_escudo_foto.setText("Escudo");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -140,7 +142,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(cb_equipo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lbl_tecnico))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(lbl_escudo_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
@@ -165,23 +167,24 @@ public class GUI_Principal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2);
 
+        lbl_jugador_foto.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lbl_jugador_foto.setText("Jugador");
 
-        jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel7.setText("Nombre:");
 
         cb_nombre.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel8.setText("Edad:");
 
-        jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel9.setText("Altura:");
 
-        jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel10.setText("Peso:");
 
-        jLabel11.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel11.setText("Salario");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -203,7 +206,7 @@ public class GUI_Principal extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel11)
                             .addComponent(jLabel10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
                 .addComponent(lbl_jugador_foto, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -231,6 +234,8 @@ public class GUI_Principal extends javax.swing.JFrame {
 
         jPanel4.setLayout(new java.awt.GridLayout(2, 0, 4, 4));
 
+        btn_agregar.setBackground(java.awt.SystemColor.textHighlight);
+        btn_agregar.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_agregar.setText("Agregar equipo");
         btn_agregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,6 +244,8 @@ public class GUI_Principal extends javax.swing.JFrame {
         });
         jPanel4.add(btn_agregar);
 
+        btn_agregar_jugador.setBackground(java.awt.SystemColor.textHighlight);
+        btn_agregar_jugador.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_agregar_jugador.setText("Agregar Jugador");
         btn_agregar_jugador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -247,15 +254,23 @@ public class GUI_Principal extends javax.swing.JFrame {
         });
         jPanel4.add(btn_agregar_jugador);
 
+        btn_calcular_nomina.setBackground(java.awt.SystemColor.textHighlight);
+        btn_calcular_nomina.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_calcular_nomina.setText("Nomina");
         jPanel4.add(btn_calcular_nomina);
 
+        btn_modificar_jugadores.setBackground(java.awt.SystemColor.textHighlight);
+        btn_modificar_jugadores.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btn_modificar_jugadores.setText("Modificar Jugadores");
         jPanel4.add(btn_modificar_jugadores);
 
+        jButton5.setBackground(java.awt.SystemColor.textHighlight);
+        jButton5.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton5.setText("?");
         jPanel4.add(jButton5);
 
+        jButton6.setBackground(java.awt.SystemColor.textHighlight);
+        jButton6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jButton6.setText("?");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,7 +291,7 @@ public class GUI_Principal extends javax.swing.JFrame {
     private void btn_agregar_jugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_agregar_jugadorActionPerformed
         // TODO add your handling code here:
         
-        GUI_Agregar_Jugador agregarJugador = new GUI_Agregar_Jugador();
+        GUI_Agregar_Jugador agregarJugador = new GUI_Agregar_Jugador(this);
         agregarJugador.setVisible(true);
     }//GEN-LAST:event_btn_agregar_jugadorActionPerformed
 
@@ -299,12 +314,28 @@ public class GUI_Principal extends javax.swing.JFrame {
                 
                 
                 cambiarImagenEquipo(equipo.getImagen());
+                
+                //Llenar el combo box de abajo
+                
+                for(Jugador jugador : equipo.getJugadores()) {
+                    
+                    cb_nombre.addItem(jugador.getNombre());
+                }
+                
+                //int tamanio = equipo.getJugadores().size();
+                //cb_nombre.addItem(equipo.getJugadores().get(tamanio - 1).getNombre());
             }
         }
         
- 
     }//GEN-LAST:event_cb_equipoActionPerformed
 
+    public void llenarCbAbajo(Equipo equipo){
+        
+        for(Jugador jugador : equipo.getJugadores()) {
+                    
+                cb_nombre.addItem(jugador.getNombre());
+            }
+    }
     /**
      * @param args the command line arguments
      */
@@ -359,8 +390,11 @@ public class GUI_Principal extends javax.swing.JFrame {
         int tamanio = mundial.getEquipos().size();
         cb_equipo.addItem(mundial.getEquipos().get(tamanio - 1).getPais());
         
-          
+        //Llenar el array de abajo con los jugadores de ese equipo
+            
     }
+    
+    
     
     public void cambiarImagenEquipo(String ruta){
         
@@ -371,6 +405,14 @@ public class GUI_Principal extends javax.swing.JFrame {
         lbl_escudo_foto.setIcon(icon2);
 
         this.repaint();
+    }
+    
+    
+    //Hicimos un metodo para dar el valor que tiene cb_equipo
+    
+    public String getValorCbEquipo(){
+        
+       return cb_equipo.getSelectedItem().toString();
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
